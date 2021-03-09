@@ -19,6 +19,8 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 
 		$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/theme.min.css' );
 		wp_enqueue_style( 'understrap-styles', get_template_directory_uri() . '/css/theme.min.css', array(), $css_version );
+		wp_enqueue_style( 'slick-default-styles', get_template_directory_uri() . '/css/slick/slick.css', array(), $css_version );
+		wp_enqueue_style( 'slick-custom-styles', get_template_directory_uri() . '/css/slick/slick-theme.css', array(), $css_version );
 
 		wp_enqueue_script( 'jquery' );
 
@@ -27,6 +29,14 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+
+		wp_enqueue_script( 'slick-scripts', get_template_directory_uri() . '/js/slick.min.js', array(), $js_version, true );
+		wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/js/custom_theme.js', array(), $js_version, true );
+		wp_enqueue_script( 'google-maps-app', get_template_directory_uri() . '/js/googlemapsapp.js', array(), $js_version, true );
+
+		wp_enqueue_script('slick-scripts');
+		wp_enqueue_script('custom-scripts');
+		wp_enqueue_script('google-maps-app');
 	}
 } // End of if function_exists( 'understrap_scripts' ).
 

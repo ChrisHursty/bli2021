@@ -1,0 +1,137 @@
+<?php
+/*
+Taxonomy Index Page - For Attractions
+ */
+
+get_header() ;?>
+<!-- Full width image -->
+<div class="container-fluid hero-area">
+	<div class="row justify-content-md-center align-items-center">
+		<div class="title-container text-center">
+			<h1>Attractions</h1>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+<!-- Row for main content area -->
+	<div class="row archive-categories">
+		<article>
+			<?php get_template_part('parts/attractions_content'); ?>
+			<p>
+				<?php
+				// Breadcrumb Style Inline List of all Businesses
+				$args = array( 'hide_empty=0' );
+
+				$terms = get_terms( 'attractions', $args );
+				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+					$count = count( $terms );
+					$i = 0;
+					$term_list = '<p>';
+					foreach ( $terms as $term ) {
+						$i++;
+						$term_list .= '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'See All %s', 'understrap' ), $term->name ) . '">' . $term->name . '</a>';
+						if ( $count != $i ) {
+							$term_list .= ' &#9656; ';
+						}
+						else {
+							$term_list .= '</p>';
+						}
+					}
+					echo $term_list;
+				};
+				?>
+			</p>
+		</article>
+	</div> <!-- row archive-categories -->
+</div>
+<?php
+// Shows image for custom taxonomy (via plugin)
+$tax_terms = get_terms($taxonomy);
+$terms     = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' => 'merchants_type') ); ?>
+<div class="container">
+	<div class="row">
+
+	<?php if ( ! empty( $terms ) ) { ;?>
+
+	<?php
+		foreach( (array) $terms as $term ) {
+			echo '<div class="col-sm-6 col-md-4 archive-block"><a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'See All %s', 'understrap' ), $term->name ) . '">';
+			echo '<div class="archive-img tax-img">' . wp_get_attachment_image( $term->image_id, 'taxonomy-thumb' );
+			echo '<div class="archive-text"><div class="title-container">' . $term->name . '</div><div class="see-all">See All <span>&#9656;</span></div></div>';
+			echo '</div></div></a>';
+		}
+	}; ?>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 large-12 columns" role="main">
+		<ul class="medium-block-grid-3">
+		<?php if ( have_posts() ) : ?>
+				
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+					
+				<li class="archiveBlock">
+					<div class="archiveAnchor">
+						<a href="<?php the_permalink(); ?>">
+							<div class="archiveImg">
+								<?php the_post_thumbnail(); ?>    
+							</div>
+						</a>
+						<div class="archiveText">
+							<div class="archiveTitle">
+								<?php the_title(); ?>    
+							</div>
+						
+							<div class="placeAddress">
+								<h6>Address</h6>
+								<?php 
+								if($address = get_field('attraction_address') ) {
+									// Returns the Address from Google Map Place
+									$contact_address = get_field('attraction_address');
+									$address = explode( "," , $contact_address['address']);
+									echo $address[0]; //street, number
+									echo '<br />';
+									echo $address[1].','.$address[2]; //city, state + zip  
+								}                       
+								
+								?>
+							
+								<div class="placeNumber">
+									<h6>Phone Number</h6>
+									<?php the_field('attraction_phone'); ?>    
+								</div>
+								<?php 
+								if( $website = get_field('attraction_website') ) {
+									?> 
+									<div class="placeWeb">
+										<h6>Website</h6>
+										<a href="<?php the_field('attraction_website'); ?>" target="_blank">
+											<?php the_field('attraction_website'); ?>
+										</a>  
+									</div>
+									<?php
+								}; ?>
+							</div> <!-- /placeAddress -->
+						</div> <!-- /archiveText --> 
+					</div> <!-- /archiveAnchor -->
+
+				</li>
+			<?php endwhile; ?>
+
+		<?php endif; // end have_posts() check ?>
+		</ul>
+
+
+		<?php /* Display navigation to next/previous pages when applicable */ ?>
+		<?php if ( function_exists('bliTheme_pagination') ) { bliTheme_pagination(); } else if ( is_paged() ) { ?>
+			<nav id="post-nav">
+				<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'bli-theme' ) ); ?></div>
+				<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'bli-theme' ) ); ?></div>
+			</nav>
+		<?php } ?>
+
+	</div> <!-- small-12 large-12 columns -->
+</div> <!-- /row -->
+<?php get_footer();

@@ -10,7 +10,6 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$container = get_theme_mod( 'understrap_container_type' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -27,39 +26,36 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<!-- ******************* The Navbar Area ******************* -->
 	<div id="wrapper-navbar">
-
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
+		<div id="" class="navbar navbar-expand-md navbar-dark" aria-labelledby="logo-text-area">
+			<div class="container header">
+				<!-- Your site title as branding in the menu -->
+				<?php if ( ! has_custom_logo() ) { ?>
+					<?php if ( is_front_page() && is_home() ) : ?>
+						<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php else : ?>
+						<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
 
-		<nav id="main-nav" class="navbar navbar-expand-md navbar-dark bg-primary" aria-labelledby="main-nav-label">
+					<?php endif; ?>
 
+					<?php
+				} else {
+					the_custom_logo();
+				}
+				?>
+				<!-- end custom logo -->
+				<div class="header-headline">
+					<h3><?php echo get_theme_mod('bli_header_text'); ?></h3>
+				</div>
+			</div><!-- .container -->
+
+
+		</div><!-- .site-navigation -->
+		<nav id="main-nav" class="navbar navbar-expand-md navbar-dark" aria-labelledby="main-nav-label">
 			<h2 id="main-nav-label" class="sr-only">
 				<?php esc_html_e( 'Main Navigation', 'understrap' ); ?>
 			</h2>
-
-		<?php if ( 'container' === $container ) : ?>
-			<div class="container">
-		<?php endif; ?>
-
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
-
-						<?php if ( is_front_page() && is_home() ) : ?>
-
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
-
-						<?php else : ?>
-
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
-
-						<?php endif; ?>
-
-						<?php
-					} else {
-						the_custom_logo();
-					}
-					?>
-					<!-- end custom logo -->
-
+			<div class="container-fluid header-nav">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -69,9 +65,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 				wp_nav_menu(
 					array(
 						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
+						'container_class' => 'collapse navbar-collapse col-12',
 						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav ml-auto',
+						'menu_class'      => 'navbar-nav',
 						'fallback_cb'     => '',
 						'menu_id'         => 'main-menu',
 						'depth'           => 2,
@@ -79,10 +75,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 					)
 				);
 				?>
-			<?php if ( 'container' === $container ) : ?>
 			</div><!-- .container -->
-			<?php endif; ?>
-
 		</nav><!-- .site-navigation -->
+		<div class="container bli-message"> <!-- Official BLI -->
+			<div class="row">
+				<div class="col-sm-12 official-bli-message">
+					<h2><?php echo get_theme_mod('bli_hero_text'); ?></h2>
+				</div>
+			</div>
 
+		</div>
 	</div><!-- #wrapper-navbar end -->
