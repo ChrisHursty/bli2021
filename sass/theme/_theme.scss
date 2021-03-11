@@ -14,11 +14,40 @@ h3 {
 
 // Header Area
 .header {
-	.header-headline {
-		h3 {
-			font-size: 1rem;
+	.right-header {
+		display: flex;
+		flex-direction: column;
+
+		.header-headline {
+			h3 {
+				font-size: 1rem;
+			}
+		}
+
+		.socials {
+			text-align: right;
+		}
+
+		.facebook,
+		.twitter,
+		.instagram,
+		.youtube {
+			display: inline-block;
+			margin: 4px 6px;
+
+			a {
+				color: #d73b41;
+				font-size: 24px;
+				display: block;
+
+				&:hover {
+					color: $primary;
+					text-decoration: none;
+				}
+			}
 		}
 	}
+
 }
 
 // Navigation
@@ -173,6 +202,7 @@ h3 {
 // Footer
 #wrapper-footer-full {
 	background-image: url('../img/footer-bg.jpg');
+	background-position: center center;
 	background-size: cover;
 
 	#footer-full-content {
@@ -255,6 +285,12 @@ h3 {
 	.navbar {
 		padding: 0;
 	}
+
+	.header {
+		.right-header {
+			padding-right: 15px;
+		}
+	}
 }
 
 // Logo Size
@@ -265,10 +301,12 @@ h3 {
 		max-width: 35%;
 	}
 
-	.header-headline {
-		flex:  0 0 65%;
-		width: 65%;
-		max-width: 65%;
+	.header {
+		.right-header {
+			padding-right: 15px;
+			text-align: right;
+			width: 65%;
+		}
 	}
 }
 

@@ -13,7 +13,7 @@ get_header() ;?>
 	</div>
 </div>
 
-<div class="container attractions-container">
+<div class="container events-container">
 	<div class="row" role="main">
 		<?php if ( have_posts() ) : ?>
 			<?php /* Start the Loop */ ?>
@@ -32,30 +32,38 @@ get_header() ;?>
 							<div class="place-address">
 								<h6>Address</h6>
 								<?php 
-								if($address = get_field('attraction_address') ) {
+								if($address = get_field('event_address') ) {
 									// Returns the Address from Google Map Place
-									$contact_address = get_field('attraction_address');
+									$contact_address = get_field('event_address');
 									$address = explode( "," , $contact_address['address']);
 									echo $address[0]; //street, number
 									echo '<br />';
 									echo $address[1].','.$address[2]; //city, state + zip
 								}
 								?>
-								<div class="place-number">
-									<h6>Phone Number</h6>
-									<?php the_field('attraction_phone'); ?>
-								</div>
-								<?php 
-								if( $website = get_field('attraction_website') ) {
-									?> 
-									<div class="place-web">
-										<h6>Website</h6>
-										<a href="<?php the_field('attraction_website'); ?>" target="_blank">
-											<?php the_field('attraction_website'); ?>
-										</a>
+								<?php
+									if( $time = get_field('event_start_time') && get_field('event_end_time') ) { ?>
+										<div class="place-number">
+											<h6>Time</h6>
+											<strong>Starts: <?php the_field('event_start_time'); ?> / Ends: <?php the_field('event_end_time'); ?></strong>
+										</div>
+									<?php } ?>
+
+									<div class="place-excerpt">
+										<p><?php the_field('event_excerpt'); ?></p>
 									</div>
 									<?php
-								}; ?>
+									if( $website = get_field('event_website') ) {
+										?>
+										<div class="place-web">
+											<h6>Website</h6>
+											<a href="<?php the_field('event_website'); ?>" target="_blank">
+												<?php the_field('event_website'); ?>
+											</a>
+										</div>
+										<?php
+									}; ?>
+								<a href="<?php the_permalink(); ?>" class="read-more">Read More...</a>
 							</div> <!-- /place-address -->
 						</div> <!-- /archive-text --> 
 					</div> <!-- /archive-anchor -->

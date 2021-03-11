@@ -13,6 +13,11 @@
 
 		.sponsor {
 			margin-bottom: 30px;
+			
+			@media screen and (max-width: 767px) {
+				padding-left: 0;
+				padding-right: 0;
+			}
 		}
 
 		.sponsorImage {
@@ -26,6 +31,12 @@
 					transform: none;
 				}
 			}
-		} 
+		}
+
+		@media screen and (max-width: 767px) {
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: 0;
+		}
 	}
 }

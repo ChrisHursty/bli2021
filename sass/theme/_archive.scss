@@ -109,3 +109,49 @@
 		}
 	}
 }
+
+.attractions-container,
+.events-container {
+	margin-top: 40px;
+
+	.attr-archive-text {
+		align-items: center;
+		border: 1px solid #eee;
+		padding: 10px 0;
+		text-align: center;
+
+		h6 {
+			font-weight: 900;
+			margin-bottom: 0;
+			margin-top: 10px;
+			padding-bottom: 0;
+		}
+
+		.title-container {
+			color: $black;
+			font-family: $serif-font;
+			font-weight: 700;
+			text-transform: uppercase;
+			@media screen and (max-width: 1024px) {
+				font-size: .75rem;
+			}
+
+			@media screen and (max-width: 575px) {
+				font-size: 1rem;
+			}
+		}
+
+		.place-address {
+			font-family: $serif-font;
+		}
+	}
+
+	.place-excerpt {
+		padding: 10px;
+	}
+
+	.read-more {
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+}

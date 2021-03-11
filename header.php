@@ -17,6 +17,7 @@ defined( 'ABSPATH' ) || exit;
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<script src="https://kit.fontawesome.com/a5fca45676.js" crossorigin="anonymous"></script>
 	<?php wp_head(); ?>
 </head>
 
@@ -44,11 +45,19 @@ defined( 'ABSPATH' ) || exit;
 				}
 				?>
 				<!-- end custom logo -->
-				<div class="header-headline">
-					<h3><?php echo get_theme_mod('bli_header_text'); ?></h3>
+				<div class="right-header">
+					<div class="header-headline">
+						<h3><?php echo get_theme_mod('bli_header_text'); ?></h3>
+					</div>
+					<div class="socials">
+						<div class="facebook"><a class="fab fa-facebook" href="https://facebook.com/BronxLittleItaly" target="_blank"></a></div>
+						<div class="twitter"><a class="fab fa-twitter"href="https://twitter.com/BXLittleItaly" target="_blank"></a></div>
+						<div class="instagram"><a class="fab fa-instagram" href="https://instagram.com/bronxlittleitaly/" target="_blank"></a></div>
+						<div class="youtube"><a class="fab fa-youtube" href="https://instagram.com/bronxlittleitaly/" target="_blank"></a></div>
+					</div> <!-- /socialLinks -->
 				</div>
+				
 			</div><!-- .container -->
-
 
 		</div><!-- .site-navigation -->
 		<nav id="main-nav" class="navbar navbar-expand-md navbar-dark" aria-labelledby="main-nav-label">

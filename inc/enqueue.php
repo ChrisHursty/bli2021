@@ -32,11 +32,9 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 
 		wp_enqueue_script( 'slick-scripts', get_template_directory_uri() . '/js/slick.min.js', array(), $js_version, true );
 		wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/js/custom_theme.js', array(), $js_version, true );
-		wp_enqueue_script( 'google-maps-app', get_template_directory_uri() . '/js/googlemapsapp.js', array(), $js_version, true );
 
 		wp_enqueue_script('slick-scripts');
 		wp_enqueue_script('custom-scripts');
-		wp_enqueue_script('google-maps-app');
 	}
 } // End of if function_exists( 'understrap_scripts' ).
 

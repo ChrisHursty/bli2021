@@ -47,7 +47,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</div>
 	</div>
 </div>
-
 <?php 
 	// Reset Post Data
 	wp_reset_postdata();
