@@ -89,7 +89,7 @@ get_header(); ?>
 				<?php if( get_field('merchant_phone') ): ?>
 				<div class="place-number">
 					<h6>Phone Number</h6>
-					<?php the_field('merchant_phone'); ?>
+					<a href="tel:<?php echo the_field('merchant_phone'); ?>"><?php the_field('merchant_phone'); ?></a>
 				</div>
 				<?php endif; ?>
 
@@ -103,7 +103,7 @@ get_header(); ?>
 				<?php if( get_field('merchant_website') ): ?>
 					<div class="place-web">
 						<h6>Website</h6>
-						<a href="<?php echo the_field('merchant_website')?>" target="_blank"><?php the_field('merchant_website') ?></a>
+						<a href="<?php echo the_field('merchant_website')?>" target="_blank">Click Here</a>
 					</div>
 				<?php endif; ?>
 			</div>

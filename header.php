@@ -22,6 +22,8 @@ defined( 'ABSPATH' ) || exit;
 </head>
 
 <body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="HbzTz9gx"></script>
 <?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
 
