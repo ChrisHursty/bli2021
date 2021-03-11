@@ -55,7 +55,7 @@ defined( 'ABSPATH' ) || exit;
 						<div class="facebook"><a class="fab fa-facebook" href="https://facebook.com/BronxLittleItaly" target="_blank"></a></div>
 						<div class="twitter"><a class="fab fa-twitter"href="https://twitter.com/BXLittleItaly" target="_blank"></a></div>
 						<div class="instagram"><a class="fab fa-instagram" href="https://instagram.com/bronxlittleitaly/" target="_blank"></a></div>
-						<div class="youtube"><a class="fab fa-youtube" href="https://instagram.com/bronxlittleitaly/" target="_blank"></a></div>
+						<div class="youtube"><a class="fab fa-youtube" href="https://www.youtube.com/channel/UC-gNHnKz5UtNtZ8sTo4hSGw" target="_blank"></a></div>
 					</div> <!-- /socialLinks -->
 				</div>
 				
