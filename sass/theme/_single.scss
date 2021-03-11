@@ -1,0 +1,34 @@
+.single-merchants {
+	.hero-map {
+		height: 300px;
+	}
+}
+
+.sidebar-merchants {
+
+	text-align: center;
+
+	h6 {
+		color: $steel;
+	}
+
+	.place-address,
+	.place-number,
+	.place-hours,
+	.place-widgets,
+	.place-web {
+		border: 1px solid $smoke;
+		margin: 2rem auto;
+		padding: 1rem; 
+	}
+	.place-address {
+		margin-top: 0;
+	}
+}
+
+
+// Filterable Categories at Top of page
+.archive-categories {
+	margin: 20px 0;
+	text-align: center;
+}

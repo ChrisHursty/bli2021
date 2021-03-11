@@ -98,6 +98,69 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 	 * Initializes themes widgets.
 	 */
 	function understrap_widgets_init() {
+
+		register_sidebar(array(
+			'id'            => 'sidebar-merchants',
+			'name'          => __('Merchants Sidebar', 'bli-theme'),
+			'description'   => __('Drag widgets to this sidebar container. Will show up on all Merchants Pages.', 'bli-theme'),
+			'before_widget' => '<article id="%1$s" class="row widget %2$s"><div class="small-12 columns">',
+			'after_widget'  => '</div></article>',
+			'before_title'  => '<h6>',
+			'after_title'   => '</h6>'
+			
+		));
+
+		register_sidebar(array(
+			'id'            => 'sidebar-attractions',
+			'name'          => __('Attractions Sidebar', 'bli-theme'),
+			'description'   => __('Drag widgets to this sidebar container. Will show up on all Attractions Pages.', 'bli-theme'),
+			'before_widget' => '<article id="%1$s" class="row widget %2$s"><div class="small-12 columns">',
+			'after_widget'  => '</div></article>',
+			'before_title'  => '<h6>',
+			'after_title'   => '</h6>'
+		));
+
+		register_sidebar(
+			array(
+				'id'          => 'homepage-facebook',
+				'name'        => __('Facebook Homepage', 'bli-theme'),
+				'description' => __('Widget Area for Homepage Facebook Feed', 'understrap'),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+		));
+
+		register_sidebar(
+			array(
+				'id'          => 'homepage-twitter',
+				'name'        => __('Twitter Homepage', 'bli-theme'),
+				'description' => __('Widget Area for Homepage Twitter Feed', 'understrap'),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+		));
+
+		register_sidebar(
+			array(
+				'id'          => 'homepage-instagram',
+				'name'        => __('Instagram Homepage', 'bli-theme'),
+				'description' => __('Widget Area for Homepage Instagram Feed', 'understrap'),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+		));
+
+		register_sidebar(
+			array(
+				'id'            => 'after-footer',
+				'name'          => __('After Footer Message', 'bli-theme'),
+				'before_widget' => '<article id="%1$s" class="bli-full-width">',
+				'after_widget'  => '</article>',
+		));
+
 		register_sidebar(
 			array(
 				'name'          => __( 'Right Sidebar', 'understrap' ),

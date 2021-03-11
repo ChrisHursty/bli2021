@@ -1,0 +1,42 @@
+.home {
+	.hp-title {
+		margin: 30px auto;
+	}
+
+	h2 {
+		text-align: center;
+	}
+
+	// Home Page Sponsor Styles
+	.sponsors {
+		list-style: none;
+
+		.sponsor {
+			margin-bottom: 30px;
+			
+			@media screen and (max-width: 767px) {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+
+		.sponsorImage {
+			border: 1px solid $white-smoke !important;
+			transition: all .3s ease-in-out;
+
+			&:hover {
+				transform: scale(1.04);
+				border: 3px solid $smoke !important;
+				@media (max-width: 767px) {
+					transform: none;
+				}
+			}
+		}
+
+		@media screen and (max-width: 767px) {
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: 0;
+		}
+	}
+}

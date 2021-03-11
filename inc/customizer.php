@@ -129,6 +129,65 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 				)
 			)
 		);
+
+		// Theme layout settings.
+		$wp_customize->add_section(
+			'bli_customizations',
+			array(
+				'title'       => __( 'BLI Customizations', 'understrap' ),
+				// 'capability'  => 'edit_theme_options',
+				'description' => __( 'Additional Header Text', 'understrap' ),
+				'priority'    => 1,
+			)
+		);
+
+		$wp_customize->add_setting(
+			'bli_header_text',
+			array(
+				'default'           => 'container',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport'         => 'refresh',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'bli_header_text',
+				array(
+					'label'       => __( 'Header Text (Next to Logo)', 'understrap' ),
+					// 'description' => __( 'Choose between Bootstrap\'s container and container-fluid', 'understrap' ),
+					'section'     => 'bli_customizations',
+					'settings'    => 'bli_header_text',
+					'type'        => 'text',
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'bli_hero_text',
+			array(
+				'default'           => 'container',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport'         => 'refresh',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'bli_hero_text',
+				array(
+					'label'       => __( 'Hero Text (Below Navigation)', 'understrap' ),
+					// 'description' => __( 'Choose between Bootstrap\'s container and container-fluid', 'understrap' ),
+					'section'     => 'bli_customizations',
+					'settings'    => 'bli_hero_text',
+					'type'        => 'textarea',
+				)
+			)
+		);
 	}
 } // End of if function_exists( 'understrap_theme_customize_register' ).
 add_action( 'customize_register', 'understrap_theme_customize_register' );
