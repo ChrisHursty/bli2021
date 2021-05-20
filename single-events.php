@@ -14,38 +14,7 @@ get_header(); ?>
 		</div>
 	</div>
 </div>
-<div class="container">
-<!-- Row for main content area -->
-	<div class="row archive-categories">
-		<article>
-			<?php get_template_part('parts/merchants_content'); ?>
-			<p>
-				<?php
-				// Breadcrumb Style Inline List of all Businesses
-				$args = array( 'hide_empty=0' );
 
-				$terms = get_terms( 'merchants_type', $args );
-				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-					$count = count( $terms );
-					$i = 0;
-					$term_list = '<p>';
-					foreach ( $terms as $term ) {
-						$i++;
-						$term_list .= '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'See All %s', 'understrap' ), $term->name ) . '">' . $term->name . '</a>';
-						if ( $count != $i ) {
-							$term_list .= ' &#9656; ';
-						}
-						else {
-							$term_list .= '</p>';
-						}
-					}
-					echo $term_list;
-				};
-				?>
-			</p>
-		</article>
-	</div> <!-- row archive-categories -->
-</div>
 <div class="wrapper" id="single-wrapper">
 	<div class="container" id="content" tabindex="-1">
 		<div class="row">
@@ -58,7 +27,7 @@ get_header(); ?>
 								the_post(); ?>
 							<?php } ?>
 							<?php if ( has_post_thumbnail() ): ?>
-								<div class="fetaured-image">
+								<div class="featured-image">
 									<?php the_post_thumbnail(); ?>
 								</div>
 							<?php endif; ?>
@@ -72,13 +41,14 @@ get_header(); ?>
 					</article><!-- #post-## -->
 				</main><!-- #main -->
 			</div>
-			<div class="col-md-4 sidebar-merchants">
+			<div class="col-md-4 sidebar-events">
+				
+				<?php if( get_field('event_address') ): ?>
 				<div class="place-address">
-					<?php if( get_field('merchant_address') ): ?>
 					<h6>Address</h6>
 					<?php 
 					// Returns the Address from Google Map Place
-					$contact_address = get_field('merchant_address');
+					$contact_address = get_field('event_address');
 					?>
 					<?php $address = explode( "," , $contact_address['address']);
 					echo $address[0]; //street, number
@@ -86,32 +56,30 @@ get_header(); ?>
 					<?php
 					echo $address[1].','.$address[2]; //city, state + zip
 					?>
-					<?php endif; ?>
-					<?php if( get_field('address_text') ): ?>
+				</div>
+				<?php endif; ?>
+				<?php if( get_field('address_text') ): ?>
+				<div class="place-address">
 					<h6>Address</h6>
 					<?php echo the_field('address_text'); ?>
-					<?php endif; ?>
 				</div>
-				<?php if( get_field('merchant_phone') ): ?>
+				<?php endif; ?>
+				<?php if( get_field('event_phone') ): ?>
 				<div class="place-number">
 					<h6>Phone Number</h6>
-					<a href="tel:<?php echo the_field('merchant_phone'); ?>"><?php the_field('merchant_phone'); ?></a>
+					<a href="tel:<?php echo the_field('event_phone'); ?>"><?php the_field('event_phone'); ?></a>
 				</div>
 				<?php endif; ?>
 
-				<?php if( get_field('merchant_hours') ): ?>
-				<div class="place-hours">
-					<h6>Opening Hours</h6>
-					<?php the_field('merchant_hours'); ?>
+				<?php
+				if( $time = get_field('event_start_time') && get_field('event_end_time') ) { ?>
+				<div class="place-time">
+					<h6>Time</h6>
+					<strong>Starts:</strong> <?php the_field('event_start_time'); ?><br />
+					<strong>Ends:</strong> <?php the_field('event_end_time'); ?>
 				</div>
-				<?php endif; ?>
+				<?php } ?>
 
-				<?php if( get_field('merchant_website') ): ?>
-					<div class="place-web">
-						<h6>Website</h6>
-						<a href="<?php echo the_field('merchant_website')?>" target="_blank">Click Here</a>
-					</div>
-				<?php endif; ?>
 			</div>
 		</div><!-- .row -->
 	</div><!-- #content -->

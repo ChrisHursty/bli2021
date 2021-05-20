@@ -39,6 +39,7 @@ h3 {
 				color: #d73b41;
 				font-size: 24px;
 				display: block;
+				transition: all 0.23s ease-in-out 0s;
 
 				&:hover {
 					color: $primary;
@@ -214,6 +215,7 @@ h3 {
 	}
 }
 
+// Footer
 #wrapper-footer {
 	background-color: $black;
 	color: $white;
@@ -235,6 +237,61 @@ h3 {
 	}
 }
 
+// MailChimp
+.pre-footer {
+	background-image: url('../img/mailchimp-bg35.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 50px auto 0;
+	padding: 120px 0;
+}
+
+.pre-footer,
+#mc_embed_signup {
+	background-color: transparent !important;
+}
+
+#mc_embed_signup label {
+	font-family: $serif-font;
+	font-size: 2.4rem !important;
+	font-weight: 900 !important;
+}
+
+#mc_embed_signup input.email {
+	font-family: $sans-font !important;
+	font-size: 20px !important;
+	border: 1px solid $primary;
+	border-radius: 0 !important;
+	color: $black !important;
+	background-color: $white !important;
+	box-sizing: border-box;
+	height: 44px !important;
+	padding: 0px 0.4em;
+	display: inline-block;
+	margin: 0;
+	width: 350px;
+	vertical-align: top;
+}
+
+#mc_embed_signup .button {
+	font-family: $sans-font !important;
+	font-size: 20px !important;
+	border: none;
+	border-radius: 0 !important;
+	letter-spacing: 0 !important;
+	color: $white;
+	background-color: $secondary !important;
+	box-sizing: border-box;
+	height: 44px !important;
+	line-height: 44px !important;
+	padding: 0 22px !important;
+	display: inline-block;
+	margin: 0;
+	text-transform: uppercase !important;
+	transition: all 0.23s ease-in-out 0s;
+}
+
 // Page Default
 .hero-area {
 	background-image: url("../img/default-featured-img.jpg");
@@ -253,16 +310,6 @@ h3 {
 			padding: 15px;
 		}
 	}
-}
-
-
-// Google Map for Places
-.acf-map {
-	width: 100%;
-	height: 300px;
-	border: 0;
-	border-bottom: 5px solid $primary;
-	margin: 20px 0;
 }
 
 // Media Queries

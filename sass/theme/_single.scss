@@ -1,20 +1,26 @@
-.single-merchants {
+.single-merchants,
+.single-events {
 	.hero-map {
 		height: 300px;
 	}
 }
 
-.sidebar-merchants {
+.sidebar-merchants,
+.sidebar-events {
 
 	text-align: center;
 
 	h6 {
-		color: $steel;
+		color: $black;
+		font-family: $serif-font;
+		font-size: 1.2rem;
+		font-weight: 900;
 	}
 
 	.place-address,
 	.place-number,
 	.place-hours,
+	.place-time,
 	.place-widgets,
 	.place-web {
 		border: 1px solid $smoke;
@@ -31,4 +37,10 @@
 .archive-categories {
 	margin: 20px 0;
 	text-align: center;
+}
+
+.single-events {
+	.featured-image {
+		margin-bottom: 40px;
+	}
 }

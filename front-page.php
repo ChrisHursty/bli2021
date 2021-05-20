@@ -42,7 +42,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 					echo the_post_thumbnail('homeSlider'); ?>
 					</div>
 				<?php endwhile; ?>
-				
 			</div><!-- /sliderHome -->
 		</div>
 	</div>
@@ -64,12 +63,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 	</div><!-- #content -->
 
 	<!-- Socials -->
-	<div class="<?php echo esc_attr( $container ); ?> hp-socials">
-		<div class="row">
-			<div class="col-sm-12 col-md-12 hp-title">
-				<h2>Follow Us On Social Media</h2>
-			</div>
-		</div>
+	<div class="<?php echo esc_attr( $container ); ?> hp-socials" style="margin-top: 30px;">
 		<div class="row">
 			<div class="col-sm-12 col-md-6 homeFacebook">
 				<?php dynamic_sidebar("homepage-facebook"); ?>

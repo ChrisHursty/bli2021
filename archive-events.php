@@ -8,7 +8,7 @@ get_header() ;?>
 <div class="container-fluid hero-area">
 	<div class="row justify-content-md-center align-items-center">
 		<div class="title-container text-center">
-			<h1>Attractions</h1>
+			<h1>Events</h1>
 		</div>
 	</div>
 </div>
@@ -30,15 +30,18 @@ get_header() ;?>
 								<h3><?php the_title(); ?></h3>
 							</div>
 							<div class="place-address">
-								<h6>Address</h6>
-								<?php 
-								if($address = get_field('event_address') ) {
+								<?php
+								if( $address = get_field( 'event_address' ) ) {
+									echo '<h6>Address</h6>';
 									// Returns the Address from Google Map Place
 									$contact_address = get_field('event_address');
 									$address = explode( "," , $contact_address['address']);
 									echo $address[0]; //street, number
 									echo '<br />';
 									echo $address[1].','.$address[2]; //city, state + zip
+								} elseif ( get_field( 'address_text' ) ) {
+									echo '<h6>Address</h6>';
+									echo the_field('address_text');
 								}
 								?>
 								<?php
@@ -63,6 +66,11 @@ get_header() ;?>
 										</div>
 										<?php
 									}; ?>
+									<?php if( get_field( 'event_phone' ) ) {
+										echo '<h6>Phone Number</h6>';
+										echo the_field('event_phone');
+										echo '<br />';
+									} ?>
 								<a href="<?php the_permalink(); ?>" class="read-more">Read More...</a>
 							</div> <!-- /place-address -->
 						</div> <!-- /archive-text --> 

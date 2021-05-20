@@ -101,8 +101,8 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar(array(
 			'id'            => 'sidebar-merchants',
-			'name'          => __('Merchants Sidebar', 'bli-theme'),
-			'description'   => __('Drag widgets to this sidebar container. Will show up on all Merchants Pages.', 'bli-theme'),
+			'name'          => __('Merchants Sidebar', 'understrap'),
+			'description'   => __('Drag widgets to this sidebar container. Will show up on all Merchants Pages.', 'understrap'),
 			'before_widget' => '<article id="%1$s" class="row widget %2$s"><div class="small-12 columns">',
 			'after_widget'  => '</div></article>',
 			'before_title'  => '<h6>',
@@ -112,8 +112,8 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar(array(
 			'id'            => 'sidebar-attractions',
-			'name'          => __('Attractions Sidebar', 'bli-theme'),
-			'description'   => __('Drag widgets to this sidebar container. Will show up on all Attractions Pages.', 'bli-theme'),
+			'name'          => __('Attractions Sidebar', 'understrap'),
+			'description'   => __('Drag widgets to this sidebar container. Will show up on all Attractions Pages.', 'understrap'),
 			'before_widget' => '<article id="%1$s" class="row widget %2$s"><div class="small-12 columns">',
 			'after_widget'  => '</div></article>',
 			'before_title'  => '<h6>',
@@ -123,7 +123,7 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 		register_sidebar(
 			array(
 				'id'          => 'homepage-facebook',
-				'name'        => __('Facebook Homepage', 'bli-theme'),
+				'name'        => __('Facebook Homepage', 'understrap'),
 				'description' => __('Widget Area for Homepage Facebook Feed', 'understrap'),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
@@ -134,7 +134,7 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 		register_sidebar(
 			array(
 				'id'          => 'homepage-twitter',
-				'name'        => __('Twitter Homepage', 'bli-theme'),
+				'name'        => __('Twitter Homepage', 'understrap'),
 				'description' => __('Widget Area for Homepage Twitter Feed', 'understrap'),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
@@ -145,7 +145,7 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 		register_sidebar(
 			array(
 				'id'          => 'homepage-instagram',
-				'name'        => __('Instagram Homepage', 'bli-theme'),
+				'name'        => __('Instagram Homepage', 'understrap'),
 				'description' => __('Widget Area for Homepage Instagram Feed', 'understrap'),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</aside>',
@@ -155,8 +155,28 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar(
 			array(
+				'name'          => __( 'Pre Footer', 'understrap' ),
+				'id'            => 'pre-footer',
+				'description'   => __( 'Full sized footer widget with dynamic grid', 'understrap' ),
+				'before_widget' => '<div id="%1$s" class="footer-widget %2$s dynamic-classes">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
+
+		// register_sidebar(
+		// 	array(
+		// 		'id'            => 'pre-footer',
+		// 		'name'          => __('Pre Footer', 'understrap'),
+		// 		'before_widget' => '<article id="%1$s" class="bli-full-width">',
+		// 		'after_widget'  => '</article>',
+		// ));
+
+		register_sidebar(
+			array(
 				'id'            => 'after-footer',
-				'name'          => __('After Footer Message', 'bli-theme'),
+				'name'          => __('After Footer Message', 'understrap'),
 				'before_widget' => '<article id="%1$s" class="bli-full-width">',
 				'after_widget'  => '</article>',
 		));

@@ -10,13 +10,17 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$container = get_theme_mod( 'understrap_container_type' );
-get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
+$container = get_theme_mod( 'understrap_container_type' ); ?>
+<div class="container-fluid pre-footer">
+	<?php dynamic_sidebar('pre-footer'); ?>
+</div>
+<?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
+
 <div class="wrapper" id="wrapper-footer">
 	<div class="<?php echo esc_attr( $container ); ?>">
 		<div class="row">
 			<div class="col-md-12">
-				<?php dynamic_sidebar("after-footer"); ?>
+				<?php dynamic_sidebar('after-footer'); ?>
 				<footer class="site-footer" id="colophon">
 					<div class="site-info">
 						<p>website designed and maintained by <a href="https://iamchrishurst.com" target="_blank">Chris Hurst</a></p>
