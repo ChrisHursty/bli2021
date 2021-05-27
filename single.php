@@ -15,7 +15,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="container-fluid hero-area">
 	<div class="row justify-content-md-center align-items-center">
 		<div class="title-container text-center">
-			<h1><?php the_title(); ?></h1>
+			<h1>Brucee <?php the_title(); ?></h1>
 		</div>
 	</div>
 </div>

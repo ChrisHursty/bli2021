@@ -1,6 +1,6 @@
 <?php
 /*
-Taxonomy Index Page - For Attractions
+Taxonomy Index Page - For Events
  */
 
 get_header() ;?>
