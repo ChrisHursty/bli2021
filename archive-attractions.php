@@ -30,21 +30,29 @@ get_header() ;?>
 								<h3><?php the_title(); ?></h3>
 							</div>
 							<div class="place-address">
-								<h6>Address</h6>
 								<?php 
 								if($address = get_field('attraction_address') ) {
+									echo '<h6>Address</h6>';
 									// Returns the Address from Google Map Place
 									$contact_address = get_field('attraction_address');
 									$address = explode( "," , $contact_address['address']);
 									echo $address[0]; //street, number
 									echo '<br />';
 									echo $address[1].','.$address[2]; //city, state + zip
+								} elseif ( get_field( 'address_text' ) ) {
+									echo '<h6>Address</h6>';
+									echo the_field('address_text');
 								}
 								?>
+								<?php 
+								if( $phone_number = get_field('attraction_phone') ) {
+									?> 
 								<div class="place-number">
 									<h6>Phone Number</h6>
 									<?php the_field('attraction_phone'); ?>
 								</div>
+									<?php
+								}; ?>
 								<?php 
 								if( $website = get_field('attraction_website') ) {
 									?> 
