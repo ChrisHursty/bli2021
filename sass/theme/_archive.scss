@@ -1,6 +1,7 @@
 .archive {
 	.archive-categories {
 		text-align: center;
+		justify-content: center;
 	}
 
 	.archive-block {
@@ -106,6 +107,14 @@
 					}
 				}
 			}
+		}
+	}
+}
+// .archive .archive-block .tax-text .place-address, .archive .archive-block
+.tax-recipe_type {
+	.archive-block .tax-text {
+		.tax-title {
+			width: 100%;
 		}
 	}
 }

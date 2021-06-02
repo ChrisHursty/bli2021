@@ -6,7 +6,8 @@
 }
 
 .sidebar-merchants,
-.sidebar-events {
+.sidebar-events,
+.sidebar-recipes {
 
 	text-align: center;
 
@@ -22,7 +23,9 @@
 	.place-hours,
 	.place-time,
 	.place-widgets,
-	.place-web {
+	.place-web,
+	.serving-size,
+	.cooking-time {
 		border: 1px solid $smoke;
 		margin: 2rem auto;
 		padding: 1rem; 
@@ -37,9 +40,11 @@
 .archive-categories {
 	margin: 20px 0;
 	text-align: center;
+	justify-content: center;
 }
 
-.single-events {
+.single-events,
+.single-recipes {
 	.featured-image {
 		margin-bottom: 40px;
 	}

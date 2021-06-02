@@ -18,13 +18,12 @@ get_header(); ?>
 <!-- Row for main content area -->
 	<div class="row archive-categories">
 		<article>
-			<?php get_template_part('parts/merchants_content'); ?>
 			<p>
 				<?php
 				// Breadcrumb Style Inline List of all Businesses
 				$args = array( 'hide_empty=0' );
 
-				$terms = get_terms( 'merchants_type', $args );
+				$terms = get_terms( 'recipe_type', $args );
 				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 					$count = count( $terms );
 					$i = 0;
@@ -72,45 +71,18 @@ get_header(); ?>
 					</article><!-- #post-## -->
 				</main><!-- #main -->
 			</div>
-			<div class="col-md-4 sidebar-merchants">
-				<div class="place-address">
-					<?php if( get_field('merchant_address') ): ?>
-					<h6>Address</h6>
-					<?php 
-					// Returns the Address from Google Map Place
-					$contact_address = get_field('merchant_address');
-					?>
-					<?php $address = explode( "," , $contact_address['address']);
-					echo $address[0]; //street, number
-					?><br />
-					<?php
-					echo $address[1].','.$address[2]; //city, state + zip
-					?>
-					<?php endif; ?>
-					<?php if( get_field('address_text') ): ?>
-					<h6>Address</h6>
-					<?php echo the_field('address_text'); ?>
-					<?php endif; ?>
-				</div>
-				<?php if( get_field('merchant_phone') ): ?>
-				<div class="place-number">
-					<h6>Phone Number</h6>
-					<a href="tel:<?php echo the_field('merchant_phone'); ?>"><?php the_field('merchant_phone'); ?></a>
+			<div class="col-md-4 sidebar-recipes">
+				<?php if( get_field('serving_size') ): ?>
+				<div class="serving-size">
+					<h6>Serving Size</h6>
+					<?php echo the_field('serving_size'); ?>
 				</div>
 				<?php endif; ?>
-
-				<?php if( get_field('merchant_hours') ): ?>
-				<div class="place-hours">
-					<h6>Opening Hours</h6>
-					<?php the_field('merchant_hours'); ?>
+				<?php if( get_field('cooking_time') ): ?>
+				<div class="serving-size">
+					<h6>Cooking Time</h6>
+					<?php echo the_field('cooking_time'); ?>
 				</div>
-				<?php endif; ?>
-
-				<?php if( get_field('merchant_website') ): ?>
-					<div class="place-web">
-						<h6>Website</h6>
-						<a href="<?php echo the_field('merchant_website')?>" target="_blank">Click Here</a>
-					</div>
 				<?php endif; ?>
 			</div>
 		</div><!-- .row -->
