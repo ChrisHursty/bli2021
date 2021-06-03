@@ -61,5 +61,26 @@ $terms     = apply_filters( 'taxonomy-images-get-terms', '', array('taxonomy' =>
 	}; ?>
 	</div>
 </div>
+<div class="container-fluid cookbook-container">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h4 class="text-center">From my Kitchen to your Table</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 cookbook-cover">
+				<a href="https://www.bronxlittleitaly.com/wp-content/uploads/2021/03/From-my-Kitchen-to-your-Table.pdf" target="_blank">
+					<img src="https://www.bronxlittleitaly.com/wp-content/uploads/2021/06/cook-book-cover.jpg" alt="Cookbook Cover">
+				</a>
+			</div>
+			<div class="col-sm-6 cookbook-link">
+				<p>A recipe book from Chef Michael Teitel, a chef and cook for 35 years. Featuring recipes that reference ingredients from Teitel Brothers and other local establishments.</p>
+				<p><button type="button" class="btn btn-primary"><a href="https://www.bronxlittleitaly.com/wp-content/uploads/2021/03/From-my-Kitchen-to-your-Table.pdf" target="_blank">See Cookbook</a></button></p>
+			</div>
+		</div>
+	</div>
+	
+</div>
 
 <?php get_footer();

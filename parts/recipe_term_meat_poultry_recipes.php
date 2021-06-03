@@ -18,6 +18,6 @@ $loop = new WP_Query(array(
 ?>
 <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 	<div class="col-sm-6 col-md-4 archive-block">
-		<?php get_template_part('parts/custom_loop'); ?>
+		<?php get_template_part('parts/recipe_loop'); ?>
 	</div>
 <?php endwhile; wp_reset_postdata(); ?>
