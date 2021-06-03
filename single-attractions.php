@@ -64,22 +64,26 @@ get_header(); ?>
 					<?php echo the_field('address_text'); ?>
 				</div>
 				<?php endif; ?>
-				<?php if( get_field('attraction_phone') ): ?>
+				<?php 
+				if( $phone_number = get_field('attraction_phone') || get_field('place_phone')) {
+					?> 
 				<div class="place-number">
 					<h6>Phone Number</h6>
-					<a href="tel:<?php echo the_field('attraction_phone'); ?>"><?php the_field('attraction_phone'); ?></a>
+					<?php the_field('attraction_phone') || the_field( 'place_phone' ); ?>
 				</div>
-				<?php endif; ?>
-
-				<?php
-				if( $time = get_field('attraction_start_time') && get_field('attraction_end_time') ) { ?>
-				<div class="place-time">
-					<h6>Time</h6>
-					<strong>Starts:</strong> <?php the_field('attraction_start_time'); ?><br />
-					<strong>Ends:</strong> <?php the_field('attraction_end_time'); ?>
-				</div>
-				<?php } ?>
-
+					<?php
+				}; ?>
+				<?php 
+				if( $website = get_field('attraction_website') || get_field('place_website')) {
+					?> 
+					<div class="place-web">
+						<h6>Website</h6>
+						<a href="<?php the_field('attraction_website') || the_field( 'place_website' ); ?>" target="_blank">
+							<?php the_field('attraction_website') || the_field( 'place_website' ); ?>
+						</a>
+					</div>
+					<?php
+				}; ?>
 			</div>
 		</div><!-- .row -->
 	</div><!-- #content -->
