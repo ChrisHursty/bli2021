@@ -81,6 +81,30 @@ function rewrite_merchants_post_links( $post_link, $id = 0 ) {
 }
 add_filter( 'post_type_link', 'rewrite_merchants_post_links' , 10, 2 );//*/
 
+function rewrite_recipes_post_links( $post_link, $id = 0 ) {
+
+	$post = get_post($id);
+	 // checks to see that there is a post and that it is a "merchants" post type.
+	if ( is_wp_error($post) || 'recipes' != $post->post_type || empty($post->post_name) )
+		return $post_link;
+
+	// Get the recipe_type taxonomy associated with the post:
+	$terms = get_the_terms($post->ID, 'recipe_type');
+
+	if( is_wp_error($terms) || !$terms ) {
+		 //if you change the initial taxonomy to all you can replace 'uncategorize'd with "all"
+		 $recipe_type = 'uncategorized';
+	}
+	else {
+		$recipe_type_obj = array_pop($terms);
+		// if merchants post type has recipe_type taxonomy get the taxonomy slug
+		$recipe_type = $recipe_type_obj->slug;
+	}
+	// returns permalink in the form of /merchants/merchants-type-taxonomy-word/post-slug
+	return home_url(user_trailingslashit( "recipes/$recipe_type/$post->post_name" ));
+}
+add_filter( 'post_type_link', 'rewrite_recipes_post_links' , 10, 2 );//*/
+
 
 // rewrite rule that will allow wordpress to parse a url with the structure www.mysite.com/merchants/merchants_type/post-slug and return a post of the merchants post type with a matching taxonomy word and post slug.
 
@@ -93,5 +117,7 @@ add_filter( 'post_type_link', 'rewrite_merchants_post_links' , 10, 2 );//*/
 function rewrite_rules() {
 	//adds rewrite rule so wordpress will recognize /merchants/anything/anything
 	add_rewrite_rule("^merchants/([^/]+)/([^/]+)/?",'index.php?post_type=merchants&merchants_type=$matches[1]&merchants=$matches[2]','top');
+
+	add_rewrite_rule("^recipes/([^/]+)/([^/]+)/?",'index.php?post_type=recipes&recipe_type=$matches[1]&recipes=$matches[2]','top');
 }
 add_action('init', 'rewrite_rules');

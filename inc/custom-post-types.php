@@ -119,6 +119,42 @@ function bli_custom_post_type() {
 
 	register_post_type( 'events', $args );
 
+	// Recipes Post Type
+	$labels = array(
+		'name'               => _x( 'Recipes', 'post type general name' ),
+		'singular_name'      => _x( 'Recipe', 'post type singular name' ),
+		'menu_name'          => _x( 'Recipes', 'admin menu' ),
+		'name_admin_bar'     => _x( 'Recipes', 'add new on admin bar' ),
+		'add_new'            => _x( 'Add New', 'Recipes' ),
+		'add_new_item'       => __( 'Add New Recipes' ),
+		'new_item'           => __( 'New Recipes' ),
+		'edit_item'          => __( 'Edit Recipes' ),
+		'view_item'          => __( 'View Recipes' ),
+		'all_items'          => __( 'All Recipes' ),
+		'search_items'       => __( 'Search Recipes' ),
+		'parent_item_colon'  => __( 'Parent Recipes:' ),
+		'not_found'          => __( 'No recipes found.' ),
+		'not_found_in_trash' => __( 'No recipes found in Trash.' ),
+	);
+
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'menu_icon'          => 'dashicons-carrot',
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'recipes' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 5,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+	);
+
+	register_post_type( 'recipes', $args );
+
 }
 add_action('init', 'bli_custom_post_type' );
 
@@ -168,6 +204,32 @@ function bli_custom_taxonomies() {
 	);
 
 	register_taxonomy( 'merchants_type', array( 'merchants' ), $args );
+
+	// Add new taxonomy, make it hierarchical (like categories)
+	$labels = array(
+		'name'              => _x( 'Types of Recipes', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Types of Recipe', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Type of Recipes' ),
+		'all_items'         => __( 'All Types of Recipes' ),
+		'parent_item'       => __( 'Parent Types of Recipes' ),
+		'parent_item_colon' => __( 'Parent Types of Recipes:' ),
+		'edit_item'         => __( 'Edit Type of Recipes' ),
+		'update_item'       => __( 'Update Type of Recipes' ),
+		'add_new_item'      => __( 'Add New Type of Recipes' ),
+		'new_item_name'     => __( 'New Type of Recipes Name' ),
+		'menu_name'         => __( 'Type of Recipes' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'recipes' ),
+	);
+
+	register_taxonomy( 'recipe_type', array( 'recipes' ), $args );
 
 }
 add_action( 'init', 'bli_custom_taxonomies', 0 );

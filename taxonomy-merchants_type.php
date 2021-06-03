@@ -25,7 +25,7 @@ get_header(); ?>
 	<div class="container-fluid hero-area">
 		<div class="row justify-content-md-center align-items-center">
 			<div class="title-container text-center">
-				<h1>General Tax <?php 
+				<h1><?php 
 						$current_merchant = get_queried_object();
 						$taxonomyName = get_taxonomy($current_merchant->taxonomy);
 						echo $current_merchant->name;
