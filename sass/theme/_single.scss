@@ -1,0 +1,51 @@
+.single-merchants,
+.single-events {
+	.hero-map {
+		height: 300px;
+	}
+}
+
+.sidebar-merchants,
+.sidebar-events,
+.sidebar-recipes {
+
+	text-align: center;
+
+	h6 {
+		color: $black;
+		font-family: $serif-font;
+		font-size: 1.2rem;
+		font-weight: 900;
+	}
+
+	.place-address,
+	.place-number,
+	.place-hours,
+	.place-time,
+	.place-widgets,
+	.place-web,
+	.serving-size,
+	.cooking-time {
+		border: 1px solid $smoke;
+		margin: 2rem auto;
+		padding: 1rem; 
+	}
+	.place-address {
+		margin-top: 0;
+	}
+}
+
+
+// Filterable Categories at Top of page
+.archive-categories {
+	margin: 20px 0;
+	text-align: center;
+	justify-content: center;
+}
+
+.single-events,
+.single-recipes {
+	.featured-image {
+		margin-bottom: 40px;
+	}
+}
