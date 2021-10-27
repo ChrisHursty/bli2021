@@ -23,17 +23,15 @@ get_header(); ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
 						<div class="entry-content">
 							<?php
-							if (have_posts()) :
-								while (have_posts()) :
-									the_post();
-									if ( has_post_thumbnail() ): ?>
-									<div class="featured-image">
-										<?php the_post_thumbnail(); ?>
-									</div>
-									<?php endif;
-									the_content();
-								endwhile;
-							endif; ?>
+							while ( have_posts() ) {
+								the_post(); ?>
+							<?php } ?>
+							<?php if ( has_post_thumbnail() ): ?>
+								<div class="featured-image">
+									<?php the_post_thumbnail(); ?>
+								</div>
+							<?php endif; ?>
+							<?php the_content(); ?>
 							<?php understrap_post_nav(); ?>
 							<footer>
 								<?php $tag = get_the_tags(); if (!$tag) { } else { ?><p><?php the_tags(); ?></p><?php } ?>
