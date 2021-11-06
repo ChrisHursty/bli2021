@@ -1,8 +1,20 @@
 <?php
-if(is_tax('press_year', '2023') ) {
+if(is_tax('press_year', '2027') ) {
+	get_template_part('parts/2027');
+} 
+elseif(is_tax('press_year', '2026') ) {
+	get_template_part('parts/2026');
+}
+elseif(is_tax('press_year', '2025') ) {
+	get_template_part('parts/2025');
+}
+elseif(is_tax('press_year', '2024') ) {
+	get_template_part('parts/2024');
+}
+elseif(is_tax('press_year', '2023') ) {
 	get_template_part('parts/2023');
-
-} elseif(is_tax('press_year', '2022') ) {
+}
+elseif(is_tax('press_year', '2022') ) {
 	get_template_part('parts/2022');
 
 } elseif(is_tax('press_year', '2021') ) {
