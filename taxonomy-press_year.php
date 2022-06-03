@@ -35,39 +35,8 @@ get_header(); ?>
 		</div>
 	</div>
 
-	<div class="container">
-		<!-- Row for main content area -->
-		<div class="row archive-categories">
-			<article>
-				<?php get_template_part('parts/merchants_content'); ?>
-				<p>
-					<?php
-					// Breadcrumb Style Inline List of all Businesses
-					$args = array( 'hide_empty=0' );
-
-					$terms = get_terms( 'merchants_type', $args );
-					if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-						$count = count( $terms );
-						$i = 0;
-						$term_list = '<p>';
-						foreach ( $terms as $term ) {
-							$i++;
-							$term_list .= '<a href="' . get_term_link( $term ) . '" title="' . sprintf( __( 'See All %s', 'understrap' ), $term->name ) . '">' . $term->name . '</a>';
-							if ( $count != $i ) {
-								$term_list .= ' &#9656; ';
-							}
-							else {
-								$term_list .= '</p>';
-							}
-						}
-						echo $term_list;
-					};
-					?>
-				</p>
-			</article>
-		</div>
-	</div>
-	<div class="container">
+	
+	<div class="container press-year-container">
 		<div class="row">
 			<?php get_template_part('parts/press_year_filter'); ?>
 		</div>
