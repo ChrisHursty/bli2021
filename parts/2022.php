@@ -11,9 +11,7 @@ $loop = new WP_Query(array(
 			'terms'    => array( $press_term ), // taxonomy term
 		)
 	),
-	'posts_per_page' =>  -1, 
-	'order'          =>  'ASC',
-	'orderby'        =>  'title'
+	'posts_per_page' =>  12
 ));
 ?>
 <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
