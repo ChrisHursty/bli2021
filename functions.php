@@ -121,3 +121,9 @@ function rewrite_rules() {
 	add_rewrite_rule("^recipes/([^/]+)/([^/]+)/?",'index.php?post_type=recipes&recipe_type=$matches[1]&recipes=$matches[2]','top');
 }
 add_action('init', 'rewrite_rules');
+
+// Removes update theme notification
+add_filter( 'site_transient_update_themes', 'remove_update_themes' );
+function remove_update_themes( $value ) {
+    return null;
+}
