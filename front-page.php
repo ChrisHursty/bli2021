@@ -80,28 +80,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 			</div>
 		</div> <!-- /row -->
 	</div><!-- #content -->
-
-	<!-- Begin Sponsor Section -->
-	<section class="container">
-		<div class="row">
-			<div class="col-sm-12 col-md-12 hp-title">
-				<h2>Our Sponsors</h2>
-			</div>
-		<!-- Query Custom Post Type -->
-		<?php query_posts('post_type=sponsor'); ?>
-		<?php /* Start loop */ ?>
-			<ul class="row sponsors">
-			<?php while (have_posts()) : the_post(); ?>
-				<li class="col-sm-12 col-md-4 sponsor">
-					<a href="<?php the_field('bli_sponsor_link'); ?>" target="_blank">
-						<img class="sponsorImage" src="<?php the_field( 'bli_sponsor_image' ); ?>" alt="<?php the_field('bli_sponsor_name'); ?>" label="<?php the_field('bli_sponsor_name'); ?>">
-					</a>
-				</li>
-			<?php endwhile; ?>
-			</ul>
-		</div> <!-- /row -->
-		
-	</section>
 </div><!-- #full-width-page-wrapper -->
 
 
